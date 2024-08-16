@@ -274,7 +274,12 @@ public class Game : MonoBehaviour
     private Cell GetCell(int x, int y)
     {
         if (IsValid(x, y)) return state[x, y];
-        else return new Cell();
+        else 
+        {
+            Cell invalid = new Cell();
+            invalid.type = Cell.Type.Invalid;
+            return invalid;
+        }
     }
 
     private bool IsValid(int x, int y)
